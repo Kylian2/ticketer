@@ -1,0 +1,9 @@
+{
+	"scripts": {
+		"build-css": "sass assets/scss/main.scss public/css/app.css",
+		"watch": "sass --watch assets/scss/main.scss public/css/app.css"
+	},
+	"devDependencies": {
+		"sass": "^1.89.0"
+	}
+}
