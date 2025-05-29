@@ -17,4 +17,14 @@ class User extends Model {
         return $users;
     }
 
+    public static function getByEmail($email) {
+        $request = "SELECT * FROM users WHERE USR_email_VC = :email;";
+        $result = connexion::pdo()->prepare($request);
+        $result->bindParam(':email', $email, PDO::PARAM_STR);
+        $result->execute();
+        $result->setFetchmode(PDO::FETCH_CLASS, "user");
+        $user = $result->fetch();
+        return $user;
+    }
+
 }

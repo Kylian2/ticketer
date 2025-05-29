@@ -30,7 +30,7 @@ class SessionGuard{
         if(!$user){
             return false;
         }
-        $verification = password_verify($password, $user->get('USR_password_VC'));
+        $verification = password_verify($password, $user->get('password'));
         return $verification ? $user : false;
     }
 
@@ -73,8 +73,17 @@ class SessionGuard{
         if(isset($_SESSION["user"]) && isset($_SESSION["last_activity"])){
             $_SESSION["last_activity"] = time();
             $user = $_SESSION["user"];
-            return $user->get('USR_id_NB');
+            return $user->get('id');
         }
+    }
+
+    public static function isAdmin(){
+        if(isset($_SESSION["user"]) && isset($_SESSION["last_activity"])){
+            $_SESSION["last_activity"] = time();
+            $user = $_SESSION["user"];
+            return $user->get('role') === 'admin';
+        }
+        return false;
     }
 
     /**
