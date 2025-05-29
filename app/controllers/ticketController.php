@@ -39,7 +39,11 @@ class TicketController {
             return;
         }
 
-        // TODO Check if the user is authorized to update the ticket
+        if(!SessionGuard::isAdmin()){
+            http_response_code(403);
+            echo "Forbidden: You do not have permission to update this ticket.";
+            return;
+        }
 
         if(isset($body['status']) && ($body['status'] !== 'new' && $body['status'] !== 'in_progress' && $body['status'] !== 'closed')) {
             http_response_code(400);
@@ -85,8 +89,8 @@ class TicketController {
             $message = new Message();
             $message->ticket = $params[0];
             $message->content = $body['message'];
-            $message->author_email = 'asilverlock2@about.com'; // replace with the actual user email from session
-            $message->author = 'Mela Lancastle'; // replace with the actual user from session
+            $message->author_email = SessionGuard::getUser()->email;
+            $message->author = SessionGuard::getUser()->name;
             $message->save();
             $message->created_at = date('Y-m-d H:i:s');
             echo '<div class="ticket__response">
@@ -120,8 +124,8 @@ class TicketController {
             $note = new note();
             $note->ticket = $params[0];
             $note->content = $body['note'];
-            $note->author_email = 'asilverlock2@about.com'; // replace with the actual user email from session
-            $note->author = 'Mela Lancastle'; // replace with the actual user from session
+            $note->author_email = SessionGuard::getUser()->email;
+            $note->author = SessionGuard::getUser()->name;
             $note->save();
             $note->created_at = date('Y-m-d H:i:s');
             echo '<div class="ticket__note">
