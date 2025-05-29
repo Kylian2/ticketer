@@ -19,12 +19,13 @@ class TicketController {
             $messages = Message::getByTicketId($ticket->id) ?? [];
             $notes = Note::getByTicketId($ticket->id) ?? [];
 
+            require_once('views/ticket.php');
+
         } catch (Exception $e) {
             http_response_code(500);
             echo "Error: " . $e->getMessage();
+            return;
         }
-
-        require_once('views/ticket.php');
     }
     
 }

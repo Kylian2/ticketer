@@ -8,7 +8,9 @@
     padding: 0;
     margin: $spacing*6;
     transition: $transition-ease;
-
+    width: 100%;
+    height: fit-content;
+    
     &:hover {
         box-shadow: $shadow-lg;
     }

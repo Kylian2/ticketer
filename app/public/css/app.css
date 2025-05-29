@@ -7,11 +7,9 @@
 .sidebar {
   background: #f3f4f6;
   min-height: 100vh;
-  max-height: 100vh;
   min-width: 320px;
   width: 25%;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  overflow: scroll;
 }
 .sidebar h1 {
   padding: 24px 24px 0;
@@ -47,6 +45,10 @@
 .sidebar__indicator--closed {
   background: #e1f7ea;
   color: #10b981;
+}
+.sidebar__list {
+  height: 100%;
+  overflow: scroll;
 }
 
 .ticket-card {
@@ -112,14 +114,14 @@
 
 .ticket-details {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  max-height: 100vh;
-  padding: 24px;
   width: 75%;
+  justify-content: center;
 }
 .ticket-details__empty {
-  margin: auto;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 .ticket-details__empty > span {
   font-size: 72px;
@@ -140,6 +142,8 @@
   padding: 0;
   margin: 24px;
   transition: cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+  width: 100%;
+  height: fit-content;
 }
 .ticket:hover {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);

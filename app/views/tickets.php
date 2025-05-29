@@ -2,7 +2,7 @@
 
 <div class="sidebar">
     <h1>Admin Dashboard</h1>
-    <div>
+    <div class="sidebar__tools">
         <div class="sidebar__indicators">
             <div class="sidebar__indicator sidebar__indicator--new">
                 <span>1</span>
@@ -18,9 +18,9 @@
             </div>
         </div>
     </div>
-    <div>
+    <div class="sidebar__list">
         <?php foreach($tickets as $ticket): ?>
-            <div class="ticket-card">
+            <div class="ticket-card" hx-get="/ticket/<?php echo $ticket->id;?>" hx-target="#zone">
                 <div>
                     <h5><?php echo $ticket->title; ?></h5>
                     <span class="material-symbols-rounded">star</span>
@@ -47,7 +47,7 @@
         <?php endforeach; ?>
     </div>
 </div>
-<div class="ticket-details">
+<div class="ticket-details" id="zone">
     <div class="ticket-details__empty">
         <span class="material-symbols-rounded">chat_bubble</span>
         <h2>Selectionnez un ticket</h2>
