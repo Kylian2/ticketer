@@ -172,11 +172,17 @@ class Router{
                 array_shift($params); 
     
                 if(!$route['middleware']){
+
+                    require_once('views/layout.php');
+
                     self::callAction($route['actionController'], $params);
                     return;
                 }
 
                 if(SessionGuard::checkSessionValidity()){
+
+                    require_once('views/layout.php');
+
                     self::callAction($route['actionController'], $params);
                     return;
                 }
