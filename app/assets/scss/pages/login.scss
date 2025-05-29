@@ -1,0 +1,351 @@
+@use "../variables" as *;
+
+
+@keyframes pulse-blob {
+    0%,
+    100% {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.3;
+        transform: scale(1.1);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.login {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing * 4;
+    position: relative;
+
+    &__background {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+    }
+
+    &__blob {
+        position: absolute;
+        border-radius: 50%;
+        mix-blend-mode: multiply;
+        filter: blur(40px);
+        animation: pulse-blob 6s ease-in-out infinite;
+
+        &--1 {
+            top: -160px;
+            right: -160px;
+            width: 320px;
+            height: 320px;
+            background: #60a5fa;
+            animation-delay: 0s;
+        }
+
+        &--2 {
+            bottom: -160px;
+            left: -160px;
+            width: 320px;
+            height: 320px;
+            background: #a78bfa;
+            animation-delay: 2s;
+        }
+    }
+
+    &__container {
+        position: relative;
+        z-index: 10;
+        width: 100%;
+        max-width: 480px;
+    }
+
+    &__card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px);
+        border-radius: 24px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: $spacing * 10;
+        position: relative;
+
+        @media (max-width: $breakpoint-sm) {
+            padding: $spacing * 8;
+            border-radius: 16px;
+        }
+    }
+
+    &__header {
+        text-align: center;
+        margin-bottom: $spacing * 10;
+    }
+
+    &__logo {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 64px;
+        height: 64px;
+        background: linear-gradient(135deg, #{$primary-color} 0%, #7c3aed 100%);
+        border-radius: 24px;
+        margin-bottom: $spacing * 4;
+        box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4);
+
+        .material-icons {
+            font-size: 32px;
+            color: $white;
+        }
+    }
+
+    &__title {
+        font-size: $font-size-2xl;
+        font-weight: $font-weight-bold;
+        color: $gray-800;
+        margin-bottom: $spacing * 2;
+        line-height: $line-height-tight;
+    }
+
+    &__subtitle {
+        font-size: $font-size-sm;
+        color: $gray-600;
+        margin-bottom: 0;
+    }
+
+    // ============================================================================
+    // ELEMENT: LOGIN__MESSAGE
+    // ============================================================================
+
+    &__message {
+        display: flex;
+        align-items: center;
+        padding: $spacing * 3 $spacing * 4;
+        border-radius: $border-radius-base;
+        margin-bottom: $spacing * 6;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-medium;
+        animation: slideIn 0.3s ease-out;
+
+        .material-icons {
+            margin-right: $spacing * 2;
+            font-size: $icon-size-base;
+        }
+
+        &--error {
+            background-color: $priority-high-bg;
+            color: $priority-high-color;
+            border: 1px solid rgba(220, 38, 38, 0.2);
+
+            .material-icons {
+                color: $priority-high-color;
+            }
+        }
+
+        &--success {
+            background-color: $priority-low-bg;
+            color: $priority-low-color;
+            border: 1px solid rgba(5, 150, 105, 0.2);
+
+            .material-icons {
+                color: $priority-low-color;
+            }
+        }
+    }
+
+    // ============================================================================
+    // ELEMENT: LOGIN__FORM
+    // ============================================================================
+
+    &__form {
+        margin-bottom: $spacing * 10;
+    }
+
+    &__field {
+        margin-bottom: $spacing * 6;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__label {
+        display: block;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-medium;
+        color: $gray-700;
+        margin-bottom: $spacing * 2;
+    }
+
+    &__input-wrapper {
+        position: relative;
+
+        .material-symbols-rounded{
+            color: $gray-800;
+        }
+    }
+
+    &__input-icon {
+        position: absolute;
+        left: $spacing * 3;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: $icon-size-lg;
+    }
+
+    &__input {
+        width: 100%;
+        padding: $spacing * 3 $spacing * 4 $spacing * 3 48px;
+        font-size: $font-size-sm;
+        color: $gray-800;
+        background: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(10px);
+        border: $border-width solid $border-color;
+        border-radius: 12px;
+
+        &::placeholder {
+            color: $gray-400;
+        }
+
+        &:focus {
+            outline: none;
+            border-color: $focus-border-color;
+            box-shadow: 0 0 0 $focus-ring-width $focus-ring-color;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        &--password {
+            padding-right: 48px;
+        }
+    }
+
+    // ============================================================================
+    // ELEMENT: LOGIN__BUTTON
+    // ============================================================================
+
+    &__button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: $spacing * 3 $spacing * 4;
+        font-size: $font-size-base;
+        font-weight: $font-weight-medium;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        position: relative;
+        overflow: hidden;
+
+        &--primary {
+            background: linear-gradient(
+                135deg,
+                #{$primary-color} 0%,
+                #7c3aed 100%
+            );
+            color: $white;
+            box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4);
+
+            &:hover {
+                background: linear-gradient(
+                    135deg,
+                    #{$primary-hover} 0%,
+                    #6d28d9 100%
+                );
+                box-shadow: 0 15px 35px -5px rgba(37, 99, 235, 0.5);
+                transform: translateY(-2px);
+            }
+
+            &:focus {
+                outline: none;
+                box-shadow: 0 0 0 $focus-ring-width $focus-ring-color;
+            }
+
+            &:active {
+                transform: translateY(0);
+            }
+        }
+    }
+
+    &__button-text {
+        margin-right: $spacing * 2;
+    }
+
+    &__button-icon {
+        font-size: $icon-size-lg;
+        transition: transform 0.2s ease;
+
+        .login__button:hover & {
+            transform: translateX(4px);
+        }
+    }
+
+    &__signup {
+        text-align: center;
+        margin-bottom: $spacing * 6;
+
+        &-text {
+            font-size: $font-size-sm;
+            color: $gray-600;
+            margin-bottom: 0;
+        }
+
+        &-link {
+            color: $primary-color;
+            font-weight: $font-weight-medium;
+            text-decoration: none;
+            transition: $transition-ease;
+
+            &:hover {
+                color: $primary-hover;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    // ============================================================================
+    // RESPONSIVE MODIFICATIONS
+    // ============================================================================
+
+    @media (max-width: $breakpoint-md) {
+        padding: $spacing * 2;
+
+        &__card {
+            padding: $spacing * 6;
+        }
+
+        &__title {
+            font-size: $font-size-xl;
+        }
+    }
+
+    @media (max-width: $breakpoint-sm) {
+
+        &__blob {
+            &--1 {
+                width: 200px;
+                height: 200px;
+                top: -100px;
+                right: -100px;
+            }
+
+            &--2 {
+                width: 200px;
+                height: 200px;
+                bottom: -100px;
+                left: -100px;
+            }
+
+        }
+    }
+}

@@ -134,6 +134,282 @@
   color: #6b7280;
 }
 
+@keyframes pulse-blob {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.1);
+  }
+}
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  position: relative;
+}
+.login__background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.login__blob {
+  position: absolute;
+  border-radius: 50%;
+  mix-blend-mode: multiply;
+  filter: blur(40px);
+  animation: pulse-blob 6s ease-in-out infinite;
+}
+.login__blob--1 {
+  top: -160px;
+  right: -160px;
+  width: 320px;
+  height: 320px;
+  background: #60a5fa;
+  animation-delay: 0s;
+}
+.login__blob--2 {
+  bottom: -160px;
+  left: -160px;
+  width: 320px;
+  height: 320px;
+  background: #a78bfa;
+  animation-delay: 2s;
+}
+.login__container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 480px;
+}
+.login__card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 40px;
+  position: relative;
+}
+@media (max-width: 640px) {
+  .login__card {
+    padding: 32px;
+    border-radius: 16px;
+  }
+}
+.login__header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.login__logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  border-radius: 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4);
+}
+.login__logo .material-icons {
+  font-size: 32px;
+  color: #ffffff;
+}
+.login__title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+.login__subtitle {
+  font-size: 14px;
+  color: #4b5563;
+  margin-bottom: 0;
+}
+.login__message {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  animation: slideIn 0.3s ease-out;
+}
+.login__message .material-icons {
+  margin-right: 8px;
+  font-size: 16px;
+}
+.login__message--error {
+  background-color: #fae7e7;
+  color: #dc2626;
+  border: 1px solid rgba(220, 38, 38, 0.2);
+}
+.login__message--error .material-icons {
+  color: #dc2626;
+}
+.login__message--success {
+  background-color: #ecfdf5;
+  color: #059669;
+  border: 1px solid rgba(5, 150, 105, 0.2);
+}
+.login__message--success .material-icons {
+  color: #059669;
+}
+.login__form {
+  margin-bottom: 40px;
+}
+.login__field {
+  margin-bottom: 24px;
+}
+.login__field:last-child {
+  margin-bottom: 0;
+}
+.login__label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 8px;
+}
+.login__input-wrapper {
+  position: relative;
+}
+.login__input-wrapper .material-symbols-rounded {
+  color: #1f2937;
+}
+.login__input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+}
+.login__input {
+  width: 100%;
+  padding: 12px 16px 12px 48px;
+  font-size: 14px;
+  color: #1f2937;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+.login__input::placeholder {
+  color: #9ca3af;
+}
+.login__input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.5);
+  background: rgba(255, 255, 255, 0.8);
+}
+.login__input--password {
+  padding-right: 48px;
+}
+.login__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+.login__button--primary {
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  color: #ffffff;
+  box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4);
+}
+.login__button--primary:hover {
+  background: linear-gradient(135deg, #1d4ed8 0%, #6d28d9 100%);
+  box-shadow: 0 15px 35px -5px rgba(37, 99, 235, 0.5);
+  transform: translateY(-2px);
+}
+.login__button--primary:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.5);
+}
+.login__button--primary:active {
+  transform: translateY(0);
+}
+.login__button-text {
+  margin-right: 8px;
+}
+.login__button-icon {
+  font-size: 20px;
+  transition: transform 0.2s ease;
+}
+.login__button:hover .login__button-icon {
+  transform: translateX(4px);
+}
+.login__signup {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.login__signup-text {
+  font-size: 14px;
+  color: #4b5563;
+  margin-bottom: 0;
+}
+.login__signup-link {
+  color: #2563eb;
+  font-weight: 500;
+  text-decoration: none;
+  transition: cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+}
+.login__signup-link:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+@media (max-width: 768px) {
+  .login {
+    padding: 8px;
+  }
+  .login__card {
+    padding: 24px;
+  }
+  .login__title {
+    font-size: 20px;
+  }
+}
+@media (max-width: 640px) {
+  .login__blob--1 {
+    width: 200px;
+    height: 200px;
+    top: -100px;
+    right: -100px;
+  }
+  .login__blob--2 {
+    width: 200px;
+    height: 200px;
+    bottom: -100px;
+    left: -100px;
+  }
+}
+
 .ticket {
   background: #ffffff;
   border: 1px solid #e5e7eb;
@@ -397,8 +673,7 @@
     font-size: 12px;
   }
 }
-
-button {
+.ticket button {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -412,18 +687,18 @@ button {
   cursor: pointer;
   transition: cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
 }
-button:hover {
+.ticket button:hover {
   background-color: #1d4ed8;
 }
-button:focus {
+.ticket button:focus {
   outline: none;
   box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.5);
 }
-button:disabled {
+.ticket button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
-button .material-symbols-rounded {
+.ticket button .material-symbols-rounded {
   font-size: 16px;
 }
 

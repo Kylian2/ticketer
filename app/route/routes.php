@@ -10,4 +10,7 @@ Router::patch('/ticket/{id}', 'TicketController@update');
 Router::post('/ticket/{id}/message', 'TicketController@postMessage');
 Router::post('/ticket/{id}/note', 'TicketController@postNote');
 
+Router::get('/login', 'AuthController@form');
+
+
 ?>
