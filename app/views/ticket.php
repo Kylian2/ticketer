@@ -34,7 +34,27 @@
             </p>
             <p class="ticket__details-item">
                 <span class="material-symbols-rounded">local_offer</span>
-                <?php echo ucfirst($ticket->category); ?>
+                <?php 
+                switch ($ticket->category) {
+                    case 'feature_request':
+                        echo 'Nouvelle fonctionnalité';
+                        break;
+                    case 'support':
+                        echo 'Support technique';
+                        break;
+                    case 'feedback':
+                        echo 'Feedback';
+                        break;
+                    case 'bug':
+                        echo 'Bug';
+                        break;
+                    case 'upgrade':
+                        echo 'Amélioration';
+                        break;
+                    default:
+                        echo $ticket->category;
+                }
+                ?>
             </p>
         </div>
     </section>
