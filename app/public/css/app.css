@@ -1,11 +1,11 @@
 .admin-dashboard {
   min-height: 100vh;
-  background: #e5e7eb;
+  background: #f3f4f6;
   display: flex;
 }
 
 .sidebar {
-  background: #f3f4f6;
+  background: white;
   min-height: 100vh;
   min-width: 320px;
   width: 25%;

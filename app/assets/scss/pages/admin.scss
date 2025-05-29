@@ -2,13 +2,13 @@
 
 .admin-dashboard{
     min-height: 100vh;
-    background: $gray-200;
+    background: $gray-100;
     display: flex;
 
 }
 
 .sidebar{
-    background: $gray-100;
+    background: white;
     min-height: 100vh;
     min-width: $sidebar-width;
     width: 25%;
