@@ -11,6 +11,7 @@ Router::post('/ticket/{id}/message', 'TicketController@postMessage');
 Router::post('/ticket/{id}/note', 'TicketController@postNote');
 
 Router::get('/login', 'AuthController@form');
-
+Router::post('/login', 'AuthController@login');
+Router::post('/register', 'AuthController@register');
 
 ?>

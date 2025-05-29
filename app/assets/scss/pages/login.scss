@@ -102,9 +102,8 @@
         margin-bottom: $spacing * 4;
         box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4);
 
-        .material-icons {
-            font-size: 32px;
-            color: $white;
+        .material-symbols-rounded{
+            color: white;
         }
     }
 
@@ -136,18 +135,15 @@
         font-weight: $font-weight-medium;
         animation: slideIn 0.3s ease-out;
 
-        .material-icons {
-            margin-right: $spacing * 2;
-            font-size: $icon-size-base;
-        }
-
         &--error {
             background-color: $priority-high-bg;
             color: $priority-high-color;
             border: 1px solid rgba(220, 38, 38, 0.2);
-
-            .material-icons {
+            p{
                 color: $priority-high-color;
+                display: flex;
+                align-items: center;
+                gap: $spacing*2;
             }
         }
 
@@ -155,10 +151,6 @@
             background-color: $priority-low-bg;
             color: $priority-low-color;
             border: 1px solid rgba(5, 150, 105, 0.2);
-
-            .material-icons {
-                color: $priority-low-color;
-            }
         }
     }
 
