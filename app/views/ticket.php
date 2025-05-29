@@ -1,5 +1,6 @@
 <div class="ticket">
-    <section class="ticket__section ticket__section--header">
+    <?php if (isset($ticket)): ?>
+    <section  class="ticket__section ticket__section--header">
         <h2 class="ticket__title"><?php echo $ticket->title; ?></h2>
         <div class="ticket__controls">
             <div class="ticket__control">
@@ -104,4 +105,7 @@
             </button>
         </div>
     </section>
+    <?php else: ?>
+        <p class="ticket__error">Aucun ticket trouvé.</p>
+    <?php endif; ?>
 </div>
