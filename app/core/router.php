@@ -138,17 +138,11 @@ class Router{
         foreach(self::$routes[strtoupper($method)] as $route){
             if($route['uri'] === $request){
                 if(!$route['middleware']){
-
-                    require_once('views/layout.php');
-
                     self::callAction($route['actionController']);
                     return;
                 }
 
                 if(SessionGuard::checkSessionValidity()){
-
-                    require_once('views/layout.php');
-                    
                     self::callAction($route['actionController']);
                     return;
                 }
@@ -172,17 +166,11 @@ class Router{
                 array_shift($params); 
     
                 if(!$route['middleware']){
-
-                    require_once('views/layout.php');
-
                     self::callAction($route['actionController'], $params);
                     return;
                 }
 
                 if(SessionGuard::checkSessionValidity()){
-
-                    require_once('views/layout.php');
-
                     self::callAction($route['actionController'], $params);
                     return;
                 }

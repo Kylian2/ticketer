@@ -52,4 +52,13 @@ class Ticket extends Model {
         return $ticket;
     }
 
+    public function update() {
+        $request = "UPDATE tickets SET status = :status, priority = :priority WHERE id = :id;";
+        $prepare = connexion::pdo()->prepare($request);
+        $prepare->bindValue(':status', $this->status, PDO::PARAM_STR);
+        $prepare->bindValue(':priority', $this->priority, PDO::PARAM_STR);
+        $prepare->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $prepare->execute();
+    }
+
 }

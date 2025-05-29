@@ -2,16 +2,17 @@
     <?php if (isset($ticket)): ?>
     <section  class="ticket__section ticket__section--header">
         <h2 class="ticket__title"><?php echo $ticket->title; ?></h2>
+        <p id="request-message"></p>
         <div class="ticket__controls">
             <div class="ticket__control">
                 <label for="status">Statut</label>
-                <select name="status" id="status">
+                <select name="status" id="status" hx-patch="/ticket/<?php echo $ticket->id; ?>" hx-trigger="change" hx-include="#status" hx-target="#request-message" >
                     <option value="new" <?php echo ($ticket->status === 'new' ? 'selected' : ''); ?>>Nouveau</option>
                     <option value="in_progress" <?php echo ($ticket->status === 'in_progress' ? 'selected' : ''); ?>>En cours</option>
                     <option value="closed" <?php echo ($ticket->status === 'closed' ? 'selected' : ''); ?>>Fermé</option>
                 </select>
             </div>
-            <div class="ticket__control">
+            <div class="ticket__control" hx-patch="/ticket/<?php echo $ticket->id; ?>" hx-trigger="change" hx-include="#priority" hx-target="#request-message" >
                 <label for="priority">Priorité</label>
                 <select name="priority" id="priority">
                     <option value="high" <?php echo ($ticket->priority === 'high' ? 'selected' : ''); ?>>Haute</option>
@@ -65,8 +66,8 @@
     </section>
     <section class="ticket__section ticket__notes">
         <h4 class="ticket__notes-title">Notes administrateur</h4>
-        <input type="text" class="ticket__notes-input" placeholder="Ajouter des notes internes...">
-        <button>
+        <input type="text" id="note" name="note" class="ticket__notes-input" placeholder="Ajouter des notes internes...">
+        <button hx-post="/ticket/<?php echo $ticket->id; ?>/note" hx-trigger="click" hx-include="#note" hx-target=".ticket__notes-list" hx-swap="beforeend">
             Ajouter
         </button>
 
@@ -98,8 +99,8 @@
         </div>
         <div class="ticket__reply">
             <h4 class="ticket__reply-title">Envoyer une réponse</h4>
-            <textarea class="ticket__reply-input" placeholder="Écrire votre réponse..."></textarea>
-            <button class="btn">
+            <textarea class="ticket__reply-input" name="message" id="message" placeholder="Écrire votre réponse..."></textarea>
+            <button class="btn" hx-post="/ticket/<?php echo $ticket->id; ?>/message" hx-trigger="click" hx-include="#message" hx-target=".ticket__responses-list" hx-swap="beforeend">
                 <span class="material-symbols-rounded">mail</span>
                 Envoyer par email
             </button>
