@@ -5,15 +5,36 @@
     <div class="sidebar__tools">
         <div class="sidebar__indicators">
             <div class="sidebar__indicator sidebar__indicator--new">
-                <span>1</span>
+                <span>
+                    <?php 
+                        $count = count(array_filter($tickets, function($ticket) {
+                            return $ticket->status === 'new';
+                        }));
+                        echo $count;
+                    ?>
+                </span>
                 <span>Nouveaux</span>
             </div>
             <div class="sidebar__indicator sidebar__indicator--in-progress">
-                <span>1</span>
+                <span>
+                    <?php 
+                        $count = count(array_filter($tickets, function($ticket) {
+                            return $ticket->status === 'in_progress';
+                        }));
+                        echo $count;
+                    ?>
+                </span>
                 <span>En cours</span>
             </div>
             <div class="sidebar__indicator sidebar__indicator--closed">
-                <span>1</span>
+                <span>
+                    <?php 
+                        $count = count(array_filter($tickets, function($ticket) {
+                            return $ticket->status === 'closed';
+                        }));
+                        echo $count;
+                    ?>
+                </span>
                 <span>Fermés</span>
             </div>
         </div>
