@@ -13,6 +13,11 @@ class TicketController {
         require_once('views/tickets.php');
     }
 
+    public static function create() {
+        require_once('views/layout.php');
+        require_once('views/index.php');
+    }
+
     public static function show(array $params) {
         try {
             $ticket = Ticket::getById($params[0]);

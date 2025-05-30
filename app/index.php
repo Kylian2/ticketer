@@ -48,7 +48,7 @@
     connexion::connect();
 
     // Dispatcher la requête en fonction de l'URI et de la méthode HTTP
-    if($_SERVER['REQUEST_URI'] != '/'){
+    if($_SERVER['REQUEST_URI'] !== '/favicon.ico' && $_SERVER['REQUEST_URI'] !== '/robots.txt') {
         session_start();
         Router::dispatch($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);
     }else{

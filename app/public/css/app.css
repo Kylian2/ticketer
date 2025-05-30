@@ -180,7 +180,6 @@
   width: 320px;
   height: 320px;
   background: #60a5fa;
-  animation-delay: 0s;
 }
 .login__blob--2 {
   bottom: -160px;
@@ -188,7 +187,6 @@
   width: 320px;
   height: 320px;
   background: #a78bfa;
-  animation-delay: 2s;
 }
 .login__container {
   position: relative;
@@ -403,6 +401,182 @@
     bottom: -100px;
     left: -100px;
   }
+}
+
+.new-ticket {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  padding: 0;
+  margin: 32px auto;
+  transition: cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+  height: fit-content;
+  max-width: 800px;
+}
+.new-ticket h1 {
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.new-ticket__header {
+  padding: 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+.new-ticket__header__app-name {
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+.new-ticket form {
+  padding: 24px;
+}
+.new-ticket form div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.new-ticket form > div {
+  margin: 24px 0;
+}
+.new-ticket form > div:first-child {
+  margin-top: 0;
+}
+.new-ticket form > div:last-child {
+  margin-bottom: 0;
+}
+.new-ticket form .new-ticket__user-info {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+.new-ticket form .new-ticket__user-info > div {
+  width: 50%;
+}
+.new-ticket form input[type=text] {
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #1f2937;
+  font-size: 14px;
+  transition: cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+}
+.new-ticket form input[type=text]::placeholder {
+  color: #9ca3af;
+}
+.new-ticket form input[type=text]:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.5);
+}
+.new-ticket form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #1f2937;
+  font-size: 14px;
+  margin-bottom: 12px;
+  resize: vertical;
+  min-height: 80px;
+  transition: cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+}
+.new-ticket form textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.5);
+}
+.new-ticket form textarea::placeholder {
+  color: #9ca3af;
+}
+.new-ticket form button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+}
+.new-ticket form button:hover {
+  background-color: #1d4ed8;
+}
+.new-ticket form button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.5);
+}
+.new-ticket form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.new-ticket form button .material-symbols-rounded {
+  font-size: 16px;
+}
+.new-ticket .message {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  animation: slideIn 0.3s ease-out;
+}
+.new-ticket .message--error {
+  background-color: #fae7e7;
+  color: #dc2626;
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  color: #dc2626;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.new-ticket .message--success {
+  background-color: #ecfdf5;
+  color: #059669;
+  border: 1px solid rgba(5, 150, 105, 0.2);
+  color: #059669;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  animation: pulse-blob 6s ease-in-out infinite;
+}
+.blob--1 {
+  top: -160px;
+  right: -160px;
+  width: 320px;
+  height: 320px;
+  background: #60a5fa;
+}
+.blob--2 {
+  bottom: -160px;
+  left: 160px;
+  width: 320px;
+  height: 320px;
+  background: #a78bfa;
+}
+.blob--3 {
+  top: 160px;
+  left: -160px;
+  width: 320px;
+  height: 320px;
+  background: #aefa8b;
 }
 
 .ticket {

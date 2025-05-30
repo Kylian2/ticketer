@@ -2,6 +2,8 @@
 
 @require_once('core/router.php');
 
+Router::get('/', 'TicketController@create');
+
 Router::get('/users', 'UserController@index');
 
 Router::get('/tickets', 'TicketController@index', true);
