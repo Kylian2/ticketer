@@ -52,6 +52,18 @@ class Ticket extends Model {
         return $ticket;
     }
 
+    public function save() {
+        $request = "INSERT INTO tickets (title, description, status, category, user) 
+                    VALUES (:title, :description, :status, :category, :user);";
+        $prepare = connexion::pdo()->prepare($request);
+        $prepare->bindValue(':title', $this->title, PDO::PARAM_STR);
+        $prepare->bindValue(':description', $this->description, PDO::PARAM_STR);
+        $prepare->bindValue(':status', $this->status, PDO::PARAM_STR);
+        $prepare->bindValue(':category', $this->category, PDO::PARAM_STR);
+        $prepare->bindValue(':user', $this->user, PDO::PARAM_STR);
+        return $prepare->execute();
+    }
+
     public function update() {
         $request = "UPDATE tickets SET status = :status, priority = :priority WHERE id = :id;";
         $prepare = connexion::pdo()->prepare($request);

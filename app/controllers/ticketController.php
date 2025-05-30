@@ -34,6 +34,65 @@ class TicketController {
         }
     }
 
+    public static function store() {
+        parse_str(file_get_contents("php://input"), $body);
+
+        if (!isset($body['user_name']) || empty($body['user_name'])) {
+            http_response_code(400);
+            echo "Bad Request: Name is required.";
+            return;
+        }
+
+        if (!isset($body['user_email']) || empty($body['user_email'])) {
+            http_response_code(400);
+            echo "Bad Request: Email is required.";
+            return;
+        }
+
+        if (!isset($body['ticket_title']) || empty($body['ticket_title'])) {
+            http_response_code(400);
+            echo "Bad Request: Title is required.";
+            return;
+        }
+
+        if (!isset($body['ticket_description']) || empty($body['ticket_description'])) {
+            http_response_code(400);
+            echo "Bad Request: Description is required.";
+            return;
+        }
+
+        if (!isset($body['ticket_category']) || (!in_array($body['ticket_category'], ['bug', 'upgrade', 'feedback', 'feature_request']))) {
+            http_response_code(400);
+            echo "Bad Request: Missing or incorrect category.";
+            return;
+        }
+
+        try {
+            $user = User::getByEmail($body['user_email']);
+
+            if(!$user){
+                $user = new User();
+                $user->name = $body['user_name'];
+                $user->email = $body['user_email'];
+                $user->save();
+            }
+
+            $ticket = new Ticket();
+            $ticket->title = $body['ticket_title'];
+            $ticket->description = $body['ticket_description'];
+            $ticket->user = $user->email;
+            $ticket->status = 'new';
+            $ticket->category = $body['ticket_category'];
+            $ticket->save();
+            http_response_code(200);
+            Header('Location: /?success=1');
+        } catch (Exception $e) {
+            http_response_code(500);
+            Header('Location: /?error='.$e->getMessage());
+            echo "Error: " . $e->getMessage();
+        }
+    }
+
     public static function update(array $params) {
 
         parse_str(file_get_contents("php://input"), $body);

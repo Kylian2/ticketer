@@ -5,7 +5,7 @@
 class User extends Model {
 
     public string $email;
-    public string $password;
+    public ?string $password;
     public string $name;
     public string $role;
 
@@ -27,14 +27,22 @@ class User extends Model {
         return $user;
     }
 
-    public function save() {
-        $request = "INSERT INTO users (email, password, name, role) VALUES (:email, :password, :name, :role);";
-        $stmt = connexion::pdo()->prepare($request);
-        $stmt->bindParam(':email', $this->email);
-        $stmt->bindParam(':password', $this->password);
-        $stmt->bindParam(':name', $this->name);
-        $stmt->bindParam(':role', $this->role);
-        return $stmt->execute();
+    public function save($admin = false) {
+        if ($admin){
+            $request = "INSERT INTO users (email, password, name, role) VALUES (:email, :password, :name, :role);";
+            $stmt = connexion::pdo()->prepare($request);
+            $stmt->bindParam(':email', $this->email);
+            $stmt->bindParam(':password', $this->password);
+            $stmt->bindParam(':name', $this->name);
+            $stmt->bindParam(':role', $this->role);
+            return $stmt->execute();        
+        } else {
+            $request = "INSERT INTO users (email, name) VALUES (:email, :name);";
+            $stmt = connexion::pdo()->prepare($request);
+            $stmt->bindParam(':email', $this->email);
+            $stmt->bindParam(':name', $this->name);
+            return $stmt->execute();
+        }
     }
 
 }

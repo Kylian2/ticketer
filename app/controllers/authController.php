@@ -47,7 +47,7 @@ class AuthController {
         $user->name = $name;
         $user->role = $role;
 
-        if ($user->save()) {
+        if ($user->save(true)) {
             //SessionGuard::start($user); // Uncomment this line if you want to start a session immediately after registration (when a registration page will be implemented)
             echo "Registration successful. Welcome, " . htmlspecialchars($name) . "!"; 
             return;
