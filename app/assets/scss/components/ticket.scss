@@ -10,6 +10,8 @@
     transition: $transition-ease;
     width: 100%;
     height: fit-content;
+    position: sticky;
+    top: $spacing*6;
     
     &:hover {
         box-shadow: $shadow-lg;
