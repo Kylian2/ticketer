@@ -484,7 +484,6 @@
   margin-bottom: 12px;
   resize: vertical;
   min-height: 80px;
-  transition: cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
 }
 .new-ticket form textarea:focus {
   outline: none;
@@ -815,7 +814,6 @@
   margin-bottom: 12px;
   resize: vertical;
   min-height: 80px;
-  transition: cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
 }
 .ticket__reply-input:focus {
   outline: none;
