@@ -413,6 +413,22 @@
   transition: cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
   height: fit-content;
   max-width: 800px;
+  width: 90%;
+  position: relative;
+  z-index: 5;
+}
+@media screen and (max-width: 1024px) {
+  .new-ticket {
+    max-width: 768px;
+    margin: 24px auto;
+  }
+}
+@media screen and (max-width: 768px) {
+  .new-ticket {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
 }
 .new-ticket h1 {
   background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
@@ -568,6 +584,12 @@
   border-radius: 50%;
   filter: blur(40px);
   animation: pulse-blob 6s ease-in-out infinite;
+  z-index: 1;
+}
+@media screen and (max-width: 768px) {
+  .blob {
+    display: none;
+  }
 }
 .blob--1 {
   top: -160px;

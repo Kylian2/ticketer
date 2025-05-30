@@ -10,6 +10,20 @@
     transition: $transition-ease;
     height: fit-content;
     max-width: 800px;
+    width: 90%;
+    position: relative;
+    z-index: 5;
+
+    @media screen and (max-width: $breakpoint-lg) {
+        max-width: 768px;
+        margin: $spacing*6 auto;
+    }
+
+    @media screen and (max-width: $breakpoint-md) {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+    }
 
     h1{
         background: linear-gradient(135deg, #{$primary-color} 0%, #7c3aed 100%);
@@ -188,6 +202,11 @@
     border-radius: 50%;
     filter: blur(40px);
     animation: pulse-blob 6s ease-in-out infinite;
+    z-index: 1;
+
+    @media screen and (max-width: $breakpoint-md) {
+        display: none;
+    }
 
     &--1 {
         top: -160px;
