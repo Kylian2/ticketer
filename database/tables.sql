@@ -1,5 +1,6 @@
 CREATE TABLE users (
-    email VARCHAR(150) PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(150) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
     name VARCHAR(50) NOT NULL,
     role ENUM('admin', 'tester') DEFAULT 'tester',
@@ -16,8 +17,8 @@ CREATE TABLE tickets (
     priority ENUM('low', 'medium', 'high') DEFAULT 'medium',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    user VARCHAR(150),
-    FOREIGN KEY (user) REFERENCES users(email)
+    user INT,
+    FOREIGN KEY (user) REFERENCES users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE notes (
@@ -26,9 +27,9 @@ CREATE TABLE notes (
     content TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    user VARCHAR(150),
-    FOREIGN KEY (ticket) REFERENCES tickets(id),
-    FOREIGN KEY (user) REFERENCES users(email)
+    user INT,
+    FOREIGN KEY (ticket) REFERENCES tickets(id) ON DELETE CASCADE,
+    FOREIGN KEY (user) REFERENCES users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE messages (
@@ -37,7 +38,7 @@ CREATE TABLE messages (
     content TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    user VARCHAR(150),
-    FOREIGN KEY (ticket) REFERENCES tickets(id),
-    FOREIGN KEY (user) REFERENCES users(email)
+    user INT,
+    FOREIGN KEY (ticket) REFERENCES tickets(id) ON DELETE CASCADE,
+    FOREIGN KEY (user) REFERENCES users(id) ON DELETE CASCADE
 );

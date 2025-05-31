@@ -14,8 +14,8 @@ class Ticket extends Model {
     public User $userObject;
 
     public static function getAll($orderby = 'date') {
-        $request = "SELECT id, title, description, status, priority, category, t.created_at, t.updated_at, u.name as user 
-                    FROM tickets t INNER JOIN users u ON u.email = t.user";
+        $request = "SELECT t.id, title, description, status, priority, category, t.created_at, t.updated_at, u.name as user 
+                    FROM tickets t INNER JOIN users u ON u.id = t.user";
 
         switch ($orderby) {
             case 'date':
@@ -50,7 +50,7 @@ class Ticket extends Model {
             throw new Exception("Ticket not found");
         }
 
-        $userRequest = "SELECT u.email, u.name, u.role FROM users u INNER JOIN tickets t ON u.email = t.user WHERE t.id = :id;";
+        $userRequest = "SELECT u.email, u.name, u.role FROM users u INNER JOIN tickets t ON u.id = t.user WHERE t.id = :id;";
         $userPrepare = connexion::pdo()->prepare($userRequest);
         $userPrepare->bindValue(':id', $id, PDO::PARAM_INT);
         $userPrepare->execute();
