@@ -1,0 +1,91 @@
+<head>
+    <meta charset="UTF-8">
+</head>
+<body style="margin: 0; padding: 0; background-color: #f9fafb;">
+    <table style="max-width: 600px; margin: auto; font-family: 'Inter', Arial, Helvetica, sans-serif; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <tr>
+            <td style="padding: 0;">
+                <div style="padding: 24px 32px; background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); text-align: center;">
+                    <h1 style="color: #ffffff; font-size: 24px; font-weight: 700; margin: 0; line-height: 1.2;">Beta Testing Portal</h1>
+                    <p style="color: rgba(255, 255, 255, 0.9); font-size: 14px; margin: 8px 0 0 0;">Confirmation de ticket</p>
+                    <p style="color: rgba(255, 255, 255, 0.9); font-size: 14px; margin: 8px 0 0 0;">{{app_name}}</p>
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="padding: 32px;">
+                <div style="display: inline-block; padding: 8px 16px; background-color: #ecfdf5; border: 1px solid #d1fae5; border-radius: 20px; margin-bottom: 24px;">
+                    <span style="color: #059669; font-size: 14px; font-weight: 600;">Ticket créé avec succès</span>
+                </div>
+
+                <h2 style="color: #1f2937; font-size: 20px; font-weight: 600; margin: 0 0 16px 0; line-height: 1.3;">
+                    Bonjour {{user_name}},
+                </h2>
+
+                <p style="color: #4b5563; font-size: 16px; line-height: 1.6; margin: 0 0 24px 0;">
+                    Nous avons bien reçu votre ticket et vous remercions pour votre contribution à l'amélioration de notre plateforme.
+                </p>
+
+                <div style="background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; margin: 24px 0;">
+                    <h3 style="color: #374151; font-size: 16px; font-weight: 600; margin: 0 0 16px 0;">
+                        Détails de votre ticket
+                    </h3>
+                    
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <tr>
+                            <td style="padding: 8px 0; border-bottom: 1px solid #e5e7eb;">
+                                <strong style="color: #6b7280; font-size: 14px;">Numéro :</strong>
+                            </td>
+                            <td style="padding: 8px 0; border-bottom: 1px solid #e5e7eb; text-align: right;">
+                                <span style="color: #1f2937; font-size: 14px; font-weight: 600;">#{{ticket_id}}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px 0; border-bottom: 1px solid #e5e7eb;">
+                                <strong style="color: #6b7280; font-size: 14px;">Titre :</strong>
+                            </td>
+                            <td style="padding: 8px 0; border-bottom: 1px solid #e5e7eb; text-align: right;">
+                                <span style="color: #1f2937; font-size: 14px;">{{ticket_title}}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px 0 0;">
+                                <strong style="color: #6b7280; font-size: 14px;">Catégorie :</strong>
+                            </td>
+                            <td style="padding: 8px 0 0; text-align: right;">
+                                <span style="color: #1f2937; border-radius: 12px; font-size: 14px;">{{ticket_category}}</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <p style="color: #4b5563; font-size: 16px; line-height: 1.6; margin: 24px 0;">
+                    <strong>Que se passe-t-il maintenant ?</strong><br>
+                    Notre équipe va examiner votre ticket dans les plus brefs délais. Vous recevrez une notification par email dès qu'une réponse sera disponible.
+                </p>
+
+                <div style="background-color: #fffbeb; border: 1px solid #fed7aa; border-radius: 8px; padding: 16px; margin: 24px 0;">
+                    <h4 style="color: #92400e; font-size: 14px; font-weight: 600; margin: 0 0 8px 0;">
+                        Conseils pour un suivi optimal
+                    </h4>
+                    <ul style="color: #78350f; font-size: 14px; margin: 0; padding-left: 20px; line-height: 1.5;">
+                        <li>Gardez ce numéro de ticket pour vos références</li>
+                        <!--<li>N'hésitez pas à apporter des précisions si nécessaire</li>-->
+                    </ul>
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="padding: 24px 32px; background-color: #f9fafb; border-top: 1px solid #e5e7eb;">
+                <p style="color: #6b7280; font-size: 12px; text-align: center; margin: 0; line-height: 1.5;">
+                    Cet email a été envoyé automatiquement depuis le Beta Testing Portal.<br>
+                    <!--Si vous avez des questions, contactez-nous à 
+                    <a href="mailto:support@betatesting.com" style="color: #2563eb;">support@betatesting.com</a>-->
+                </p>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

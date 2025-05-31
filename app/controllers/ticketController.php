@@ -4,8 +4,22 @@
 @require_once('models/message.php');
 @require_once('models/note.php');
 @require_once('core/sessionGuard.php');
+@require_once('core/mailer.php');
 
 class TicketController {
+
+    public static array $categories = [
+        'bug' => 'Bug',
+        'upgrade' => 'Upgrade',
+        'feedback' => 'Feedback',
+        'feature_request' => 'Feature Request'
+    ];
+
+    public static array $status = [
+        'new' => 'Nouveau',
+        'in_progress' => 'En cours',
+        'closed' => 'Fermé'
+    ];
 
     public static function index() {
         $orderby = $_GET['sort'] ?? 'date';
@@ -98,6 +112,19 @@ class TicketController {
             $ticket->status = 'new';
             $ticket->category = $body['ticket_category'];
             $ticket->save();
+
+            $mail = Mailer::init();
+            $mail->addAddress($user->email);
+            $mail->Subject = 'Confirmation de ticket';
+            $htmlBody = file_get_contents('./views/mails/validation-ticket.html');
+            $htmlBody = str_replace(
+                ['{{app_name}}', '{{user_name}}', '{{ticket_id}}', '{{ticket_title}}','{{ticket_category}}'],
+                [$_ENV['APP_NAME'], $user->name, $ticket->id, $ticket->title, self::$categories[$ticket->category]],
+                $htmlBody
+            );
+            $mail->Body = $htmlBody;
+            Mailer::send($mail);
+
             http_response_code(200);
             Header('Location: /?success=1');
         } catch (Exception $e) {
@@ -171,6 +198,21 @@ class TicketController {
             $message->author = SessionGuard::getUser()->name;
             $message->save();
             $message->created_at = date('Y-m-d H:i:s');
+
+            $ticket = Ticket::getById($params[0]);
+
+            $mail = Mailer::init();
+            $mail->addAddress($ticket->userObject->email);
+            $mail->Subject = '[Ticket #' . $ticket->id . '] Nouvelle réponse';
+            $htmlBody = file_get_contents('./views/mails/response-ticket.html');
+            $htmlBody = str_replace(
+                ['{{app_name}}', '{{user_name}}', '{{ticket_id}}', '{{ticket_title}}','{{ticket_date}}', '{{admin_name}}', '{{response_date}}', '{{response_content}}', '{{new_status}}'],
+                [$_ENV['APP_NAME'], $ticket->userObject->name, $ticket->id, $ticket->title, $ticket->created_at, SessionGuard::getUser()->name, $message->created_at, nl2br(htmlspecialchars($message->content)), self::$status[$ticket->status]],
+                $htmlBody
+            );
+            $mail->Body = $htmlBody;
+            Mailer::send($mail);
+
             echo '<div class="ticket__response">
                     <div class="ticket__response-header">
                         <span class="ticket__response-author">' . htmlspecialchars($message->author) . '</span>

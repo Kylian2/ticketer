@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nouvelle réponse à votre ticket</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f9fafb;">
+    <table style="max-width: 600px; margin: auto; font-family: 'Inter', Arial, Helvetica, sans-serif; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <tr>
+            <td style="padding: 0;">
+                <div style="padding: 24px 32px; background: linear-gradient(135deg, #059669 0%, #0891b2 100%); text-align: center;">
+                    <h1 style="color: #ffffff; font-size: 24px; font-weight: 700; margin: 0; line-height: 1.2;">Beta Testing Portal</h1>
+                    <p style="color: rgba(255, 255, 255, 0.9); font-size: 14px; margin: 8px 0 0 0;">Nouvelle réponse disponible</p>
+                    <p style="color: rgba(255, 255, 255, 0.9); font-size: 14px; margin: 8px 0 0 0;">{{app_name}}</p>
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="padding: 32px;">
+                <div style="display: inline-block; padding: 8px 16px; background-color: #ecfdf5; border: 1px solid #d1fae5; border-radius: 20px; margin-bottom: 24px;">
+                    <span style="color: #059669; font-size: 14px; font-weight: 600;">💬 Nouvelle réponse</span>
+                </div>
+
+                <h2 style="color: #1f2937; font-size: 20px; font-weight: 600; margin: 0 0 16px 0; line-height: 1.3;">
+                    Bonjour {{user_name}},
+                </h2>
+
+                <p style="color: #4b5563; font-size: 16px; line-height: 1.6; margin: 0 0 24px 0;">
+                    Notre équipe a répondu à votre ticket <strong>#{{ticket_id}}</strong>. Voici les détails de la réponse :
+                </p>
+
+                <div style="background-color: #f3f4f6; border-left: 4px solid #2563eb; padding: 16px; margin: 24px 0;">
+                    <h4 style="color: #374151; font-size: 14px; font-weight: 600; margin: 0 0 8px 0;">
+                        Ticket de référence
+                    </h4>
+                    <p style="color: #6b7280; font-size: 14px; margin: 0; line-height: 1.4;">
+                        <strong>{{ticket_title}}</strong><br>
+                        Créé le {{ticket_date}}
+                    </p>
+                </div>
+
+                <div style="background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; margin: 24px 0;">
+                    <div style="display: flex; align-items: center; margin-bottom: 16px;">
+                        <div>
+                            <p style="color: #1f2937; font-weight: 600; font-size: 14px; margin: 0;">{{admin_name}}</p>
+                            <p style="color: #6b7280; font-size: 12px; margin: 0;">{{response_date}}</p>
+                        </div>
+                    </div>
+                    
+                    <p style="color: #374151; font-size: 15px; line-height: 1.6; margin: 0;">
+                        {{response_content}}
+                    </p>
+                </div>
+
+                <div style="background-color: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 16px; margin: 24px 0;">
+                    <h4 style="color: #1e40af; font-size: 14px; font-weight: 600; margin: 0 0 8px 0;">
+                        Mise à jour du statut
+                    </h4>
+                    <p style="color: #1e3a8a; font-size: 14px; margin: 0;">
+                        Votre ticket est maintenant marqué comme : 
+                        <span style="font-weight: 500;">{{new_status}}</span>
+                    </p>
+                </div>
+
+                <!--<div style="text-align: center; margin: 32px 0;">
+                    <a href="{{ticket_url}}" style="display: inline-block; padding: 12px 24px; background: linear-gradient(135deg, #059669 0%, #0891b2 100%); color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 14px; margin-right: 12px;">
+                        Voir le ticket complet
+                    </a>
+                    <a href="{{reply_url}}" style="display: inline-block; padding: 12px 24px; background-color: #ffffff; color: #374151; text-decoration: none; border: 1px solid #d1d5db; border-radius: 8px; font-weight: 600; font-size: 14px;">
+                        Répondre
+                    </a>
+                </div>-->
+
+                <!--<div style="background-color: #f0f9ff; border: 1px solid #bae6fd; border-radius: 8px; padding: 16px; margin: 24px 0;">
+                    <h4 style="color: #0369a1; font-size: 14px; font-weight: 600; margin: 0 0 8px 0;">
+                        Besoin d'aide supplémentaire ?
+                    </h4>
+                    <p style="color: #0c4a6e; font-size: 14px; margin: 0; line-height: 1.5;">
+                        Si cette réponse ne résout pas complètement votre problème, n'hésitez pas à ajouter des commentaires ou à créer un nouveau ticket.
+                    </p>
+                </div>-->
+
+                <!-- Satisfaction Survey -->
+                <!--<div style="text-align: center; margin: 24px 0; padding: 16px; background-color: #fefce8; border: 1px solid #fde047; border-radius: 8px;">
+                    <h4 style="color: #a16207; font-size: 14px; font-weight: 600; margin: 0 0 12px 0;">
+                        Cette réponse vous a-t-elle été utile ?
+                    </h4>
+                    <div>
+                        <a href="{{survey_url}}&rating=satisfied" style="display: inline-block; padding: 8px 16px; background-color: #22c55e; color: #ffffff; text-decoration: none; border-radius: 6px; font-size: 12px; margin: 0 4px;">
+                            👍 Oui
+                        </a>
+                        <a href="{{survey_url}}&rating=neutral" style="display: inline-block; padding: 8px 16px; background-color: #f59e0b; color: #ffffff; text-decoration: none; border-radius: 6px; font-size: 12px; margin: 0 4px;">
+                            🤔 Partiellement
+                        </a>
+                        <a href="{{survey_url}}&rating=unsatisfied" style="display: inline-block; padding: 8px 16px; background-color: #ef4444; color: #ffffff; text-decoration: none; border-radius: 6px; font-size: 12px; margin: 0 4px;">
+                            👎 Non
+                        </a>
+                    </div>
+                </div>-->
+            </td>
+        </tr>
+
+        <!-- Footer -->
+        <tr>
+            <td style="padding: 24px 32px; background-color: #f9fafb; border-top: 1px solid #e5e7eb;">
+                <p style="color: #6b7280; font-size: 12px; text-align: center; margin: 0; line-height: 1.5;">
+                    Vous recevez cet email car vous avez créé un ticket sur le Beta Testing Portal.<br>
+                    <!--Pour gérer vos notifications : 
+                    <a href="{{unsubscribe_url}}" style="color: #2563eb;">Se désabonner</a> | 
+                    <a href="{{preferences_url}}" style="color: #2563eb;">Préférences</a>-->
+                </p>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

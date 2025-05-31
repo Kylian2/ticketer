@@ -76,7 +76,9 @@ class Ticket extends Model {
         $prepare->bindValue(':status', $this->status, PDO::PARAM_STR);
         $prepare->bindValue(':category', $this->category, PDO::PARAM_STR);
         $prepare->bindValue(':user', $this->user, PDO::PARAM_STR);
-        return $prepare->execute();
+        $prepare->execute();
+        $this->id = connexion::pdo()->lastInsertId();
+        return $this;
     }
 
     public function update() {
