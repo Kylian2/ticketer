@@ -13,6 +13,8 @@
     min-width: $sidebar-width;
     width: 25%;
     box-shadow: $shadow-lg;
+    max-height: 100vh;
+    overflow: scroll;
 
     h1{
         padding: $spacing * 6 $spacing * 6 0;
@@ -191,6 +193,8 @@
     display: flex;
     width: 75%;
     justify-content: center;
+    max-height: 100vh;
+    overflow: scroll;
 
     &__empty{
         height: 100vh;
