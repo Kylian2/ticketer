@@ -110,3 +110,20 @@
         <p class="ticket__error">Aucun ticket trouvé.</p>
     <?php endif; ?>
 </div>
+<script>
+  document.body.addEventListener('htmx:afterRequest', (event) => {
+    if (event.target.matches('button[hx-post*="/message"]')) {
+      const messageInput = document.querySelector('#message');
+      if (messageInput) {
+        messageInput.value = '';
+      }
+    }
+
+    if (event.target.matches('button[hx-post*="/note"]')) {
+      const noteInput = document.querySelector('#note');
+      if (noteInput) {
+        noteInput.value = '';
+      }
+    }
+  });
+</script>
