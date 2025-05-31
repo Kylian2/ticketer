@@ -3,6 +3,26 @@
 <div class="sidebar">
     <h1>Admin Dashboard</h1>
     <div class="sidebar__tools">
+        <form method='GET' action="/tickets">
+            <select name="status" id="status" >
+                <option value="all" <?php echo $_GET['status'] === '' ? 'selected' : '' ?>>Tous les statuts</option>
+                <option value="new" <?php echo $_GET['status'] === 'new' ? 'selected' : '' ?>>Nouveau</option>
+                <option value="in_progress" <?php echo $_GET['status'] === 'in_progress' ? 'selected' : '' ?>>En cours</option>
+                <option value="closed" <?php echo $_GET['status'] === 'closed' ? 'selected' : '' ?>>Fermé</option>
+            </select>
+            <select name="priority" id="priority" >
+                <option value="" <?php echo $_GET['priority'] === '' ? 'selected' : '' ?>>Toutes les priorités</option>
+                <option value="high" <?php echo $_GET['priority'] === 'high' ? 'selected' : '' ?>>Haute</option>
+                <option value="medium" <?php echo $_GET['priority'] === 'medium' ? 'selected' : '' ?>>Moyenne</option>
+                <option value="low" <?php echo $_GET['priority'] === 'low' ? 'selected' : '' ?>>Basse</option>
+            </select>
+            <select name="sort" id="sort" >
+                <option value="date" <?php echo ($_GET['sort'] != 'priority' && $_GET['sort'] != 'sort') ? 'selected' : ''; ?>>Trier par date</option>
+                <option value="priority" <?php echo $_GET['sort'] === 'priority' ? 'selected' : '' ?>>Trier par priorité</option>
+                <option value="status" <?php echo $_GET['sort'] === 'status' ? 'selected' : '' ?>>Trier par statut</option>
+            </select>
+            <button><span class="material-symbols-rounded">search</span>Appliquer</button>
+        </form>
         <div class="sidebar__indicators">
             <div class="sidebar__indicator sidebar__indicator--new">
                 <span>

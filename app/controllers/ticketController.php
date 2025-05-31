@@ -8,7 +8,21 @@
 class TicketController {
 
     public static function index() {
-        $tickets = Ticket::getAll();
+        $orderby = $_GET['sort'] ?? 'date';
+        $tickets = Ticket::getAll($orderby);
+
+        if (isset($_GET['status']) && $_GET['status'] !== 'all') {
+            $tickets = array_filter($tickets, function($ticket) {
+                return $ticket->status === $_GET['status'];
+            });
+        }
+
+        if (isset($_GET['priority']) && $_GET['priority'] !== '') {
+            $tickets = array_filter($tickets, function($ticket) {
+                return $ticket->priority === $_GET['priority'];
+            });
+        }
+
         require_once('views/layout.php');
         require_once('views/tickets.php');
     }

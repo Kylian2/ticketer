@@ -50,6 +50,55 @@
   height: 100%;
   overflow: scroll;
 }
+.sidebar form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 24px 24px;
+}
+.sidebar form select {
+  padding: 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #1f2937;
+  font-size: 14px;
+  transition: cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+}
+.sidebar form select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.5);
+}
+.sidebar form button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+}
+.sidebar form button:hover {
+  background-color: #1d4ed8;
+}
+.sidebar form button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.5);
+}
+.sidebar form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.sidebar form button .material-symbols-rounded {
+  font-size: 16px;
+}
 
 .ticket-card {
   display: flex;

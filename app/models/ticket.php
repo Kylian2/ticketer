@@ -13,9 +13,24 @@ class Ticket extends Model {
     public string $user;
     public User $userObject;
 
-    public static function getAll() {
+    public static function getAll($orderby = 'date') {
         $request = "SELECT id, title, description, status, priority, category, t.created_at, t.updated_at, u.name as user 
-                    FROM tickets t INNER JOIN users u ON u.email = t.user;";
+                    FROM tickets t INNER JOIN users u ON u.email = t.user";
+
+        switch ($orderby) {
+            case 'date':
+                $request .= " ORDER BY t.created_at DESC;";
+                break;
+            case 'priority':
+                $request .= " ORDER BY t.priority DESC, t.created_at DESC;";
+                break;
+            case 'status':
+                $request .= " ORDER BY t.status, t.created_at DESC;";
+                break;
+            default:
+                $request .= ";";
+        }
+        
         $result = connexion::pdo()->query($request);
         $result->setFetchmode(PDO::FETCH_CLASS, "Ticket");
         $tickets = $result->fetchAll();
