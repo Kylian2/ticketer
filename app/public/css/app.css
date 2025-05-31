@@ -672,8 +672,6 @@
   transition: cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
   width: 100%;
   height: fit-content;
-  position: sticky;
-  top: 24px;
 }
 .ticket:hover {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
