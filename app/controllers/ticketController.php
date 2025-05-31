@@ -22,18 +22,18 @@ class TicketController {
     ];
 
     public static function index() {
-        $orderby = $_GET['sort'] ?? 'date';
+        $orderby = $_GET['f-sort'] ?? 'date';
         $tickets = Ticket::getAll($orderby);
 
-        if (isset($_GET['status']) && $_GET['status'] !== 'all') {
+        if (isset($_GET['f-status']) && $_GET['f-status'] !== 'all') {
             $tickets = array_filter($tickets, function($ticket) {
-                return $ticket->status === $_GET['status'];
+                return $ticket->status === $_GET['f-status'];
             });
         }
 
-        if (isset($_GET['priority']) && $_GET['priority'] !== '') {
+        if (isset($_GET['f-priority']) && $_GET['f-priority'] !== '') {
             $tickets = array_filter($tickets, function($ticket) {
-                return $ticket->priority === $_GET['priority'];
+                return $ticket->priority === $_GET['f-priority'];
             });
         }
 
