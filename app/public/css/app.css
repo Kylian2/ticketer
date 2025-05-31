@@ -1125,6 +1125,9 @@
   align-items: center;
   gap: 8px;
 }
+.settings .button--danger {
+  margin: 0 24px 24px;
+}
 
 * {
   margin: 0;
@@ -1232,6 +1235,26 @@ p:last-child {
 .settings-button span {
   transition: 0.3s;
   cursor: pointer;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+}
+.button--danger {
+  background: #fef2f2;
+  color: #ef4444;
+  border: 1px solid #ef4444;
 }
 
 /*# sourceMappingURL=app.css.map */

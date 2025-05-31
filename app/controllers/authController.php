@@ -73,4 +73,9 @@ class AuthController {
         }
     }
 
+    public static function logout(){
+        SessionGuard::stop();
+        header('HX-Redirect: /login'); 
+    }
+
 }

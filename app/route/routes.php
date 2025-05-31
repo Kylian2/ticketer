@@ -17,6 +17,7 @@ Router::post('/ticket', 'TicketController@store');
 Router::get('/login', 'AuthController@form');
 Router::post('/login', 'AuthController@login');
 Router::post('/register', 'AuthController@register');
+Router::delete('/logout', 'AuthController@logout', true);
 
 Router::get('/settings', 'UserController@settings', true);
 

@@ -30,5 +30,5 @@
             </form>
         </div>
     </section>
-
+    <button class="button button--danger" hx-delete="/logout" hx-trigger="click" hx-target="body" hx-swap="none"><span class="material-symbols-rounded">logout</span>Se déconnecter</button>
 </section>
