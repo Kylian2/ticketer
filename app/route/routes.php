@@ -5,6 +5,7 @@
 Router::get('/', 'TicketController@create');
 
 Router::get('/users', 'UserController@index');
+Router::patch('/users', 'UserController@patch', true);
 
 Router::get('/tickets', 'TicketController@index', true);
 Router::get('/ticket/{id}', 'TicketController@show', true);
@@ -16,5 +17,7 @@ Router::post('/ticket', 'TicketController@store');
 Router::get('/login', 'AuthController@form');
 Router::post('/login', 'AuthController@login');
 Router::post('/register', 'AuthController@register');
+
+Router::get('/settings', 'UserController@settings', true);
 
 ?>

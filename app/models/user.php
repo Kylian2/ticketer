@@ -4,6 +4,7 @@
 
 class User extends Model {
 
+    public string $id;
     public string $email;
     public ?string $password;
     public string $name;
@@ -43,6 +44,17 @@ class User extends Model {
             $stmt->bindParam(':name', $this->name);
             return $stmt->execute();
         }
+    }
+
+    public function update() {
+        $request = "UPDATE users SET email = :email, password = :password, name = :name, role = :role WHERE id = :id;";
+        $stmt = connexion::pdo()->prepare($request);
+        $stmt->bindParam(':id', $this->id);
+        $stmt->bindParam(':email', $this->email);
+        $stmt->bindParam(':password', $this->password);
+        $stmt->bindParam(':name', $this->name);
+        $stmt->bindParam(':role', $this->role);
+        return $stmt->execute();
     }
 
 }

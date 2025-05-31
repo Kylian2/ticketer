@@ -1,3 +1,7 @@
+<div class="settings-button" hx-get="/settings" hx-trigger="click" hx-target="#zone">
+    <span class="material-symbols-rounded">settings</span>
+</div>
+
 <main class="admin-dashboard">
 
 <div class="sidebar">

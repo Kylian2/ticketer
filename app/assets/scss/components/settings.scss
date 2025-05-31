@@ -1,0 +1,199 @@
+@use "../variables" as *;
+
+.settings {
+    background: $white;
+    border: $border-width solid $border-color;
+    border-radius: $border-radius-base;
+    box-shadow: $shadow-sm;
+    padding: 0;
+    margin: $spacing*6;
+    transition: $transition-ease;
+    width: calc(100% - $spacing*6*2);
+    height: fit-content;
+
+    h1{
+        padding: $spacing*6 $spacing*6 0;
+        margin-bottom: $spacing*2;
+    }
+
+    > div, > p{
+        padding: 0 $spacing*6;
+    }
+
+    > section {
+        padding: 0 $spacing*6;
+        border-top: $border-width solid $border-color;
+
+        >h2{
+            margin-top: $spacing*4;
+            margin-bottom: $spacing*2;
+        }
+
+        > div {
+            display: flex;
+            flex-direction: column;
+            border-top: $border-width solid $border-color;
+            gap: $spacing*4;
+            margin-bottom: $spacing*6;
+
+            label{
+                margin-top: $spacing*4;
+                display: block;
+            }
+        }
+    }
+
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: $spacing*4;
+
+        input[type='text'], input[type='password'], input[type='email']{
+            padding: $spacing*3;
+            border: $border-width solid $border-color;
+            border-radius: $border-radius-base;
+            background-color: $white;
+            color: $gray-800;
+            font-size: $font-size-sm;
+            transition: $transition-ease;
+            width: 100%;
+
+            &::placeholder {
+                color: $gray-400;
+            }
+
+            &:focus {
+                outline: none;
+                border-color: $focus-border-color;
+                box-shadow: 0 0 0 $focus-ring-width $focus-ring-color;
+            }
+        }
+
+        textarea{
+            width: 100%;
+            padding: $spacing*3;
+            border: $border-width solid $border-color;
+            border-radius: $border-radius-base;
+            background-color: $white;
+            color: $gray-800;
+            font-size: $font-size-sm;
+            margin-bottom: $spacing*3;
+            resize: vertical;
+            min-height: 80px;
+
+            &:focus {
+                outline: none;
+                border-color: $focus-border-color;
+                box-shadow: 0 0 0 $focus-ring-width $focus-ring-color;
+            }
+
+            &::placeholder {
+                color: $gray-400;
+            }
+        }
+
+        button {
+            display: inline-flex;
+            align-items: center;
+            gap: $spacing*2;
+            padding: $spacing*3 $spacing*5;
+            background-color: $primary-color;
+            color: $white;
+            border: none;
+            border-radius: $border-radius-base;
+            font-size: $font-size-sm;
+            font-weight: $font-weight-medium;
+            cursor: pointer;
+            transition: $transition-ease;
+            width: fit-content;
+
+            &:hover {
+                background-color: $primary-hover;
+            }
+        
+            &:focus {
+                outline: none;
+                box-shadow: 0 0 0 $focus-ring-width $focus-ring-color;
+            }
+        
+            &:disabled {
+                opacity: $disabled-opacity;
+                cursor: $cursor-not-allowed;
+            }
+        
+            .material-symbols-rounded {
+                font-size: $icon-size-base;
+            }
+        }
+
+        select {
+            padding: $spacing*2;
+            border: $border-width solid $border-color;
+            border-radius: $border-radius-base;
+            background-color: $white;
+            color: $gray-800;
+            font-size: $font-size-sm;
+            transition: $transition-ease;
+
+            &:focus {
+                outline: none;
+                border-color: $focus-border-color;
+                box-shadow: 0 0 0 $focus-ring-width $focus-ring-color;
+            }
+        }
+    }
+
+    &__section{
+        
+        &__password{
+            display: flex;
+            flex-direction: column;
+    
+            &__form{
+                display: flex;
+                flex-direction: column;
+                gap: $spacing*4;
+                > div{
+                    display: flex;
+                    justify-content: space-between;
+                    gap: $spacing*4;
+                    input{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    .message {
+        display: flex;
+        align-items: center;
+        padding: $spacing * 3 $spacing * 4;
+        border-radius: $border-radius-base;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-medium;
+        animation: slideIn 0.3s ease-out;
+        margin-bottom: $spacing*4;
+        
+        &--error {
+            background-color: $priority-high-bg;
+            color: $priority-high-color;
+            border: 1px solid rgba(220, 38, 38, 0.2);
+            color: $priority-high-color;
+            display: flex;
+            align-items: center;
+            gap: $spacing*2;
+        }
+
+        &--success {
+            background-color: $priority-low-bg;
+            color: $priority-low-color;
+            border: 1px solid rgba(5, 150, 105, 0.2);
+            color: $priority-low-color;
+            display: flex;
+            align-items: center;
+            gap: $spacing*2;
+        }
+    }
+
+}

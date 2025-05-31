@@ -3,6 +3,7 @@
 @use "./pages/login.scss" as *;
 @use "./pages/index.scss" as *;
 @use "./components/ticket.scss" as *;
+@use "./components/settings.scss" as *;
 
 * {
     margin: 0;
@@ -104,5 +105,34 @@ p {
 
     &:last-child {
         margin-bottom: 0;
+    }
+}
+
+// ============================================================================
+// STYLE GLOBAUX
+// ============================================================================
+
+.settings-button{
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing*2;
+    border-radius: $border-radius-base;
+    box-shadow: $shadow-lg;
+    
+    &:hover{
+        span{
+            transform: rotate(90deg);
+            color: $primary-color;
+        }
+    }
+
+    span{
+        transition: .3s;
+        cursor: pointer;
     }
 }
