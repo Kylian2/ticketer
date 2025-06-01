@@ -32,7 +32,6 @@ bower_components/
 # Miscellaneous
 *.bak
 *.tmp
-*.lock
 
 # Composer
 vendor/
