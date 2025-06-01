@@ -1,0 +1,6 @@
+./assets/scss
+./config/nginx.conf
+.env
+.env.*
+.idea
+node_modules
