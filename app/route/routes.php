@@ -2,23 +2,23 @@
 
 @require_once('core/router.php');
 
-Router::get('/', 'TicketController@create');
+Router::get('/', 'ticketController@create');
 
-Router::get('/users', 'UserController@index');
-Router::patch('/users', 'UserController@patch', true);
+Router::get('/users', 'userController@index');
+Router::patch('/users', 'userController@patch', true);
 
-Router::get('/tickets', 'TicketController@index', true);
-Router::get('/ticket/{id}', 'TicketController@show', true);
-Router::patch('/ticket/{id}', 'TicketController@update');
-Router::post('/ticket/{id}/message', 'TicketController@postMessage');
-Router::post('/ticket/{id}/note', 'TicketController@postNote');
-Router::post('/ticket', 'TicketController@store');
+Router::get('/tickets', 'ticketController@index', true);
+Router::get('/ticket/{id}', 'ticketController@show', true);
+Router::patch('/ticket/{id}', 'ticketController@update');
+Router::post('/ticket/{id}/message', 'ticketController@postMessage');
+Router::post('/ticket/{id}/note', 'ticketController@postNote');
+Router::post('/ticket', 'ticketController@store');
 
-Router::get('/login', 'AuthController@form');
-Router::post('/login', 'AuthController@login');
-Router::post('/register', 'AuthController@register');
-Router::delete('/logout', 'AuthController@logout', true);
+Router::get('/login', 'authController@form');
+Router::post('/login', 'authController@login');
+Router::post('/register', 'authController@register');
+Router::delete('/logout', 'authController@logout', true);
 
-Router::get('/settings', 'UserController@settings', true);
+Router::get('/settings', 'userController@settings', true);
 
 ?>
