@@ -39,11 +39,13 @@ class TicketController {
 
         require_once('views/layout.php');
         require_once('views/tickets.php');
+        @require_once('views/bottom.php');
     }
 
     public static function create() {
         require_once('views/layout.php');
         require_once('views/index.php');
+        @require_once('views/bottom.php');
     }
 
     public static function show(array $params) {
